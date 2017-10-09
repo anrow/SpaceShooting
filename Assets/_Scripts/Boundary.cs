@@ -11,9 +11,8 @@ public class Boundary : MonoBehaviour {
            if( instance == null ) {
               instance = ( Boundary ) FindObjectOfType( typeof( Boundary ) );
      
-              if( instance == null ) {
-                 Debug.LogError("Boundary Instance Error");
-              }
+              Debug.LogError("Boundary Instance Error");
+              
            }
            return instance;
         }
@@ -32,7 +31,8 @@ public class Boundary : MonoBehaviour {
     }
 
     private void OnTriggerExit( Collider other ) {
-        Destroy( other.gameObject ); 
+        Destroy( other.gameObject );
+        Debug.Log( other.name );
     }
 
 }

@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update( ) {
         
-		lifePanel.UpdateLife( player.Life( ) );
+		//lifePanel.UpdateLife( player.Life( ) );
 
         //scoreLabel.UpdateScore( );
         
