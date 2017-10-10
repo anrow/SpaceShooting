@@ -25,18 +25,18 @@ public class PlayerMove : MonoBehaviour {
 		rb = gameObject.GetComponent<Rigidbody>( );
 
         InputCtrl = GameObject.FindObjectOfType<InputController>( );
-
+       
     }
 	
 	void FixedUpdate( ) {
         if( InputCtrl != null ) {
-            HandleInput( );
+            MovementInput( );
         }
 
         HandleMovement( );
     }
 
-    Vector3 HandleInput( ) {
+    Vector3 MovementInput( ) {
         return InputCtrl.MoveDir( );
     }
 

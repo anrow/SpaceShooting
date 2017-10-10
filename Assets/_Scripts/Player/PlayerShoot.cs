@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
-    private InputController InputCtrl;
-
     //生成した弾丸のトランスフォーマー
     [SerializeField]
     private Transform shotTrans;
 
-    void Update( ){
+    void Start( ){
+
+        shotTrans = GameObject.FindGameObjectWithTag( "PlayerShotTrans" ).transform;
+        
+    }
+
+    void FixedUpdate( ){
         if( InputController.OnShoot( ) ) {
             Debug.Log( "shoot" );
         }
