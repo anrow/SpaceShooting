@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour {
-
-    //生成した弾丸のトランスフォーマー
-    [SerializeField]
-    private Transform shotTrans;
-
-    void Start( ){
-
-        shotTrans = GameObject.FindGameObjectWithTag( "PlayerShotTrans" ).transform;
-        
-    }
+public class PlayerShoot : Player {
 
     void FixedUpdate( ){
         if( InputController.OnShoot( ) ) {

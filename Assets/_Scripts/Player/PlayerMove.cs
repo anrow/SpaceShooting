@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour {
-
-    public static bool CanMove = true;
-    public static bool CanRotate = true;
-
-    private Rigidbody rb;
+public class PlayerMove : Player {
 
     public InputController InputCtrl;
 
@@ -21,8 +16,6 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void Start( ) {
-
-		rb = gameObject.GetComponent<Rigidbody>( );
 
         InputCtrl = GameObject.FindObjectOfType<InputController>( );
        

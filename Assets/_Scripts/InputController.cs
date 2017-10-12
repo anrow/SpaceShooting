@@ -17,8 +17,6 @@ public class InputController : MonoBehaviour {
         }   
     }
 
-    public List<bool> EventOn = new List<bool>( );
-
     static public bool OnShoot( ) {
         if( Input.GetKeyDown( KeyCode.LeftControl ) ) {
             return true;
