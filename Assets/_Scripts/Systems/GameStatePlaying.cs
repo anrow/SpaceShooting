@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateManagement;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameStatePlaying : State<GameState> {
 
@@ -25,22 +26,15 @@ public class GameStatePlaying : State<GameState> {
     }
 
     public override void EnterState( GameState _state ) {
-       Debug.Log( "EnterGameState" );
+       Debug.Log( "EnterPlayState" );
     }
 
     public override void ExitState( GameState _state ) {
-        Debug.Log( "ExitGameState" );
+		SceneManager.LoadScene ("Title");
+        Debug.Log( "ExitPlayState" );
     }
 
     public override void UpdateState( GameState _state ) {
-        if( _state.gameState == 1 ) {
-            _state.stateManager.SetState( GameStateTitle.Instance );
-            Debug.Log( "title" );
-        }
-       /* if( _state.switchState ) {
-            _state.stateManager.SetState( GameStateTitle.Instance );
-            Debug.Log( "title" );
-        }*/
         
     }
 

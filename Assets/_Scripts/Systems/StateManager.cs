@@ -28,7 +28,6 @@
     public abstract class State<T> {
         public abstract void EnterState( T _state );
         public abstract void UpdateState( T _state );
-        public abstract void ExitState( T _state );
-
+		public abstract void ExitState (T _state);
     }
 }
