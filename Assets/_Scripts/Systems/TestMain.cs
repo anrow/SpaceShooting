@@ -5,13 +5,15 @@ using StateManagement;
 
 public class TestMain : MonoBehaviour {
 	
-	private StateManager<TestBase> stateManager;
+	private StateManager<TestBase> sm_base;
 
-	void Start( ){
-		stateManager = new StateManager<TestBase>( new Test1() );
+	void Start( ) {
+		sm_base = new StateManager<TestBase>( new Test1( ) );
 	}
 
 	void Update( ) {
-		stateManager.UpdateState( );
+        
+		sm_base.UpdateState( );
+       
 	}
 }

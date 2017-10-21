@@ -7,15 +7,16 @@ namespace StateManagement {
 
 		public event Action OnStateChanged;
 
+        //               Dictionary<T Key, T Vaule>
 		private readonly Dictionary<Type, State<T>> states = new Dictionary<Type, State<T>>( );
 
 		private State<T> currentState;
 
-		public StateManager( State<T> _initalState ) {
-			_initalState.SetStateManager( this );
-			states.Add( _initalState.GetType( ), _initalState );
-			currentState = _initalState;
-			_initalState.EnterState( );
+		public StateManager( State<T> _InitalState ) {
+			_InitalState.SetStateManager( this );
+			states.Add( _InitalState.GetType( ), _InitalState );
+			currentState = _InitalState;
+			_InitalState.EnterState( );
         }
 
 		public void UpdateState( ) {
@@ -26,9 +27,9 @@ namespace StateManagement {
 
 		public void SetState<TR>( ) where TR : State<T> {
 			
-			var newState = typeof( TR );
+			var NewState = typeof( TR );
 
-			if( currentState.GetType( ) == newState ) {
+			if( currentState.GetType( ) == NewState ) {
 				return;
 			}
 
@@ -36,7 +37,7 @@ namespace StateManagement {
 				currentState.ExitState( );
 			}
 
-			currentState = GetState( newState );
+			currentState = GetState( NewState );
 			currentState.EnterState( );
 
 			if( OnStateChanged != null ) {
@@ -45,16 +46,16 @@ namespace StateManagement {
 
 		}
 
-		private State<T> GetState( Type _newState ) {
-			if( states.ContainsKey( _newState ) ) {
-				return states[ _newState ];
+		private State<T> GetState( Type _NewState ) {
+			if( states.ContainsKey( _NewState ) ) {
+				return states[ _NewState ];
 			}
 
-			var state = Activator.CreateInstance( _newState ) as State<T>;
+			var state = Activator.CreateInstance( _NewState ) as State<T>;
 
 			if( state != null ) {
 				state.SetStateManager( this );
-				states.Add( _newState, state );
+				states.Add( _NewState, state );
 				return state;
 			}
 			return null;
