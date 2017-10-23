@@ -18,7 +18,6 @@ namespace StateManagement {
 			currentState = _InitalState;
 			_InitalState.EnterState( );
         }
-
 		public void UpdateState( ) {
 			if( currentState != null ) {
 				currentState.UpdateState( );
