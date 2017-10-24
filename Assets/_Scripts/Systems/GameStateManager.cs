@@ -14,8 +14,21 @@ public class GameStateManager : GameState {
 	void Update( ) {
 		//SM_GameState.UpdateState ();
 		if (Input.GetKeyDown (KeyCode.A)) {
-			SM_GameState.SetState<GameStatePause> ();
+			SM_GameState.SetState<GameStatePause>( );
 		}
 	}
 
+    public void GameTitle( ) {
+         SM_GameState.SetState<GameStateTitle>( );
+    }
+
+    public void GamePause( ) {
+        SM_GameState.SetState<GameStatePause>( );
+    }
+    public void GamePlay( ) {
+        SM_GameState.SetState<GameStatePlay>( );
+    }
+    public void GameOver( ) {
+        SM_GameState.SetState<GameStateGameOver>( );
+    }
 }

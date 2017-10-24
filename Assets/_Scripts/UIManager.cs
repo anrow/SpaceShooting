@@ -19,7 +19,9 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField]
     private LifePanel lifePanel;
-   
+    
+    [SerializeField]
+    private GameObject title;
 	// Use this for initialization
 	void Start( ) {
 		

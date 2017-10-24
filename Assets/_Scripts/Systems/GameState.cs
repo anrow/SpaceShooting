@@ -8,7 +8,7 @@ public class GameState : MonoBehaviour {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Title");
 		}
-		public override void UpdateState() {
+		public override void UpdateState( ) {
 			
 		}
 		public override void ExitState( ) {
@@ -28,7 +28,7 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-	public class GameStatePlaying : State<GameState> {
+	public class GameStatePlay : State<GameState> {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Playing");
 		}
@@ -49,15 +49,6 @@ public class GameState : MonoBehaviour {
 		}
 		public override void ExitState( ) {
 			Debug.Log ("Exit Over");
-		}
-	}
-
-	public class GameStateBase : State<GameState> {
-		public override void EnterState( ) {
-		}
-		public override void UpdateState() {
-		}
-		public override void ExitState( ) {
 		}
 	}
 }
