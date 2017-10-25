@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : MonoBehaviour {
-	
+
 	public class GameStateTitle : State<GameState> {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Title");
@@ -20,7 +20,7 @@ public class GameState : MonoBehaviour {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Pause");
 		}
-		public override void UpdateState() {
+		public override void UpdateState( ) {
 			
 		}
 		public override void ExitState( ) {
@@ -32,7 +32,7 @@ public class GameState : MonoBehaviour {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Playing");
 		}
-		public override void UpdateState() {
+		public override void UpdateState( ) {
 			
 		}
 		public override void ExitState( ) {
@@ -44,7 +44,7 @@ public class GameState : MonoBehaviour {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Over");
 		}
-		public override void UpdateState() {
+		public override void UpdateState( ) {
 
 		}
 		public override void ExitState( ) {

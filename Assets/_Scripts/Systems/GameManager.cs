@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GameStateManager))]
+
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
@@ -10,7 +11,25 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private UIManager UI_Manager;
-    void Start( ) {
-        GS_Manager.GameTitle( );
+
+    void Awake( ) {
+        if( GS_Manager == null ) {
+            GS_Manager = this.gameObject.GetComponentInChildren<GameStateManager>( );
+        }
+        if( UI_Manager == null ) {
+            UI_Manager = this.gameObject.GetComponentInChildren<UIManager>( );
+        }
     }
+
+    void Start( ) {
+        GS_Manager.SetGameStart( );
+        UI_Manager.SetVisbleTitle( );
+    }
+
+    void Update( ) {
+        
+        GS_Manager.CheckGameStateUpdate( );
+
+    }
+        
 }

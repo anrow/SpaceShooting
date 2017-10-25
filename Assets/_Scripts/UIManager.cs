@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using StateManagement;
 
 public class UIManager : MonoBehaviour {
-
-    [SerializeField]
-    private PlayerController player;
-
-    [SerializeField]
-    private ShipController ship;
-
-    [SerializeField]
-    private AsteriodController asteriod;
 
     [SerializeField]
     private ScoreLabel scoreLabel;
@@ -23,19 +15,14 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private GameObject title;
 	// Use this for initialization
-	void Start( ) {
-		
-	}
-	
-	// Update is called once per frame
-	void Update( ) {
+
+    void SetVisble( GameObject _UIObj ) {
+        _UIObj.SetActive( true );
+    }
+
+    public void SetVisbleTitle( ) {
+        SetVisble( title );
+
+    }
         
-		//lifePanel.UpdateLife( player.Life( ) );
-
-        //scoreLabel.UpdateScore( );
-        
-	}
-
-   
-
 }

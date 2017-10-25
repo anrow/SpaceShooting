@@ -7,28 +7,54 @@ public class GameStateManager : GameState {
 
 	private StateManager<GameState> SM_GameState;
 
+    public enum EM_GameState {
+        GAME_STATE_TITLE,
+        GAME_STATE_PAUSE,
+        GAME_STATE_PLAY,
+        GAME_STATE_GAMEOVER,
+    }
+
+    EM_GameState em_GameState = EM_GameState.GAME_STATE_TITLE;
+
+    public EM_GameState gameState{ get{ return em_GameState; } }
+
 	void Start( ) {
-		SM_GameState = new StateManager<GameState>( new GameStateTitle( ) );
+		
 	}
+        
+    public void CheckGameStateUpdate( ) {
+      
+        switch( em_GameState ) {
+            
+            case EM_GameState.GAME_STATE_TITLE:
+                SetGameTitle( );
+                break;
+            case EM_GameState.GAME_STATE_PAUSE:
+                SetGamePause( );
+                break;
+            case EM_GameState.GAME_STATE_PLAY:
+                SetGamePlay( );
+                break;
+            case EM_GameState.GAME_STATE_GAMEOVER:
+                SetGameOver( );
+                break;
+        }
+    }
 
-	void Update( ) {
-		//SM_GameState.UpdateState ();
-		if (Input.GetKeyDown (KeyCode.A)) {
-			SM_GameState.SetState<GameStatePause>( );
-		}
-	}
+    public void SetGameStart( ) {
+        SM_GameState = new StateManager<GameState>( new GameStateTitle( ) );
+    }
 
-    public void GameTitle( ) {
+    void SetGameTitle( ) {
          SM_GameState.SetState<GameStateTitle>( );
     }
-
-    public void GamePause( ) {
+    void SetGamePause( ) {
         SM_GameState.SetState<GameStatePause>( );
     }
-    public void GamePlay( ) {
+    void SetGamePlay( ) {
         SM_GameState.SetState<GameStatePlay>( );
     }
-    public void GameOver( ) {
+    void SetGameOver( ) {
         SM_GameState.SetState<GameStateGameOver>( );
     }
 }
