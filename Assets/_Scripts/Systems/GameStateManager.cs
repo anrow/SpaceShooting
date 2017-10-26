@@ -14,13 +14,9 @@ public class GameStateManager : GameState {
         GAME_STATE_GAMEOVER,
     }
 
-    EM_GameState em_GameState = EM_GameState.GAME_STATE_TITLE;
+    private EM_GameState em_GameState = EM_GameState.GAME_STATE_TITLE;
 
     public EM_GameState gameState{ get{ return em_GameState; } }
-
-	void Start( ) {
-		
-	}
         
     public void CheckGameStateUpdate( ) {
       
@@ -44,7 +40,6 @@ public class GameStateManager : GameState {
     public void SetGameStart( ) {
         SM_GameState = new StateManager<GameState>( new GameStateTitle( ) );
     }
-
     void SetGameTitle( ) {
          SM_GameState.SetState<GameStateTitle>( );
     }

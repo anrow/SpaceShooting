@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : MonoBehaviour {
-
+	
 	public class GameStateTitle : State<GameState> {
 		public override void EnterState( ) {
 			Debug.Log ("Enter Title");
