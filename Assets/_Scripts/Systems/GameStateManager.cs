@@ -11,8 +11,8 @@ public class GameStateManager : GameState {
         GAME_STATE_TITLE,
         GAME_STATE_PAUSE,
         GAME_STATE_PLAY,
-        GAME_STATE_GAMEOVER,
-    }
+        GAME_STATE_GAMEOVER
+	};
 
     private EM_GameState em_GameState = EM_GameState.GAME_STATE_TITLE;
 
@@ -34,6 +34,7 @@ public class GameStateManager : GameState {
             case EM_GameState.GAME_STATE_GAMEOVER:
                 SetGameOver( );
                 break;
+
         }
     }
 

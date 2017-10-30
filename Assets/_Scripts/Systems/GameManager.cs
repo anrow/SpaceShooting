@@ -9,21 +9,21 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameStateManager GS_Manager;
 
-    [SerializeField]
-    private UIManager UI_Manager;
+	[SerializeField]
+	private UIManager UI_Manager;
 
     void Awake( ) {
         if( GS_Manager == null ) {
             GS_Manager = this.gameObject.GetComponentInChildren<GameStateManager>( );
         }
-        if( UI_Manager == null ) {
-            UI_Manager = this.gameObject.GetComponentInChildren<UIManager>( );
-        }
+		if( UI_Manager == null ) {
+			UI_Manager = gameObject.transform.Find( "UI_Canvas" ).GetComponent<UIManager>( );
+		}
+       
     }
 
     void Start( ) {
         GS_Manager.SetGameStart( );
-        UI_Manager.SetVisbleTitle( );
     }
 
     void Update( ) {
