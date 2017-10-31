@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using StateManagement;
+using StateManagement.GameState;
 
 public class GameStateManager : GameState {
 
-	private StateManager<GameState> SM_GameState;
+	private StateManager<GameState> SM_GameState = null;
 
     public enum EM_GameState {
         GAME_STATE_TITLE,
