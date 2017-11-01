@@ -7,21 +7,14 @@ using StateManagement.GameState;
 public class GameStateManager : GameState {
 
 	private StateManager<GameState> SM_GameState = null;
+    
+    public void GameStateUpdate( ) {
+        SM_GameState.UpdateState( );
+    }
 
-    public enum EM_GameState {
-        GAME_STATE_TITLE,
-        GAME_STATE_PAUSE,
-        GAME_STATE_PLAY,
-        GAME_STATE_GAMEOVER
-	};
-
-    private EM_GameState em_GameState = EM_GameState.GAME_STATE_TITLE;
-
-    public EM_GameState gameState{ get{ return em_GameState; } }
-        
-    public void CheckGameStateUpdate( ) {
+    public void CheckGameState( ) {
       
-        switch( em_GameState ) {
+        switch( gameState ) {
             
             case EM_GameState.GAME_STATE_TITLE:
                 SetGameTitle( );
@@ -39,8 +32,8 @@ public class GameStateManager : GameState {
         }
     }
 
-    public void SetGameStart( ) {
-        SM_GameState = new StateManager<GameState>( new GameStateTitle( ) );
+    public void Init( ) {
+        SM_GameState = new StateManager<GameState>( new GameStateTitle( ) );   
     }
     void SetGameTitle( ) {
          SM_GameState.SetState<GameStateTitle>( );
