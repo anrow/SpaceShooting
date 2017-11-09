@@ -12,6 +12,7 @@ public class GameLoopController : MonoBehaviour {
     }
 
     void Start( ) {
+		
         m_SceneStateController.SetState( new TitleState( m_SceneStateController ), "Title" );
     }
 

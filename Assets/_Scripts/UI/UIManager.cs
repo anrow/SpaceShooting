@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class UIManager : MonoBehaviour {
 
-    public TitleUI titleUI;
+
     //public PlayUI playUI;
     //public PauseUI pauseUI;
     //public GameoverUI gameoverUI;
@@ -13,9 +13,7 @@ public class UIManager : MonoBehaviour {
     private bool isActive = true;
 
     private void Awake( ) {
-        if( titleUI = null ) {
-            titleUI = GameObject.FindGameObjectWithTag( "UI_Title" ).GetComponent<TitleUI>( );
-        }
+       
     }
 
     public bool IsVisable( ) {

@@ -14,8 +14,8 @@ public class SceneStateController {
     public void SetState( SceneState _State, string LoadSceneName ) {
 
         isRunBegin = false;
-
-        LoadScene( LoadSceneName );
+	
+       	LoadScene( LoadSceneName );
 
         if( m_State != null ) {
             m_State.ExitState( );
@@ -35,9 +35,7 @@ public class SceneStateController {
     }
 
     public void UpdateState( ) {
-
         
-
         if( m_State != null && isRunBegin == false ) {
 
             m_State.EnterState( );
@@ -46,7 +44,9 @@ public class SceneStateController {
         }
 
         if( m_State != null ) {
+            
             m_State.UpdateState( );
+
         }
     }
 
