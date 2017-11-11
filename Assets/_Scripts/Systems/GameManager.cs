@@ -2,31 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : Object {
 
-    [SerializeField]
-    private GameStateManager GS_Manager;
+    private static GameManager instance;
 
-    [SerializeField]
-    private UIManager UI_Manager;
+    public static GameManager Instance {
+        get {
+            if( instance == null ) {
 
-    void Awake( ) {
-        if( GS_Manager == null ) {
-            GS_Manager = this.gameObject.GetComponentInChildren<GameStateManager>( );
+                instance = new GameManager( );
+
+                DontDestroyOnLoad( GameManager.instance );
+            }
+            return instance;
         }
-        if( UI_Manager == null ) {
-            UI_Manager = GameObject.FindGameObjectWithTag( "UIManager" ).GetComponent<UIManager>( );
-        }
     }
 
-    void Start( ) {
-        GS_Manager.Init( );
+    public void Initinal( ) {
+    
+    }
+    
+    public void Update( ) {
     }
 
-    void Update( ) {
-        
-        GS_Manager.CheckGameState( );
-        GS_Manager.GameStateUpdate( );
+    public void GamePause( ) {
     }
-        
+    
+    public void GameOver( ) {
+    } 
 }

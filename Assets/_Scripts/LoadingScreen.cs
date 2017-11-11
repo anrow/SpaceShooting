@@ -1,0 +1,12 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class LoadingScreen : MonoBehaviour {
+
+    public GameObject loading;
+
+    public Slider slider;
+
+    
+}

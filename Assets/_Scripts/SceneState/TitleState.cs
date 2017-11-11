@@ -5,28 +5,23 @@ using UnityEngine.UI;
 
 public class TitleState : SceneState {
 	
-    public TitleState( SceneStateController Controller ) : base( Controller ) {
+    public TitleState( SceneStateController _Controller ) : base( _Controller ) {
         this.StateName = "Title";
     }
 
     public override void EnterState( ) {
-		Debug.Log("Title");
-		//GameObject CanvasObj = UnityTool.FindObjInName( "Canvas" );
-		
-		//Button btn = GameObject.Find("StartButton").GetComponent<Button>();
-		
-		//Debug.Log( CanvasObj );
-		
-		//Button btn = UITool.GetUIComponent<Button>( CanvasObj, "StartButton" );
-		
-		//Debug.Log( btn );
-		
-		GameObject player = GameObject.Find( "Player" );
-		
-		Debug.Log( player );
+    
     }
 
-    private void OnStartButtonClick( Button _btn ) {
+    public override void UpdateState( ) {
+        GameObject CanvasObj = UnityTool.FindObjInName( "Canvas" );
+        Button btn = UITool.GetUIComponent<Button>( CanvasObj, "StartButton" );
+        if( btn != null ) {
+            btn.onClick.AddListener( ( ) => OnStartButtonClick( ) );
+        }
+    }
+
+    private void OnStartButtonClick( ) {
         m_Controller.SetState( new MainGameState( m_Controller ), "MainGame" );
     }
 }

@@ -11,17 +11,23 @@ public class SceneStateController {
 
     public SceneStateController( ) { }
 
-    public void SetState( SceneState _State, string LoadSceneName ) {
+    public void CheckState( ) {
+       
+    } 
+
+    public void SetState( SceneState _NewState, string LoadSceneName ) {
 
         isRunBegin = false;
-	
-       	LoadScene( LoadSceneName );
-
+	    
+        if( SceneManager.GetActiveScene( ).name != LoadSceneName ) {
+       	    LoadScene( LoadSceneName );
+        }
+        
         if( m_State != null ) {
             m_State.ExitState( );
         }
-
-        m_State = _State;
+       
+        m_State = _NewState;
 
     }
 

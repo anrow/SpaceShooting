@@ -17,8 +17,8 @@ public class SceneState {
         }
     }
 
-    public SceneState( SceneStateController Controller ) {
-        m_Controller = Controller;
+    public SceneState( SceneStateController _Controller ) {
+        m_Controller = _Controller;
     }
 
     public virtual void EnterState( ) { }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLoopController : MonoBehaviour {
 
@@ -12,8 +13,7 @@ public class GameLoopController : MonoBehaviour {
     }
 
     void Start( ) {
-		
-        m_SceneStateController.SetState( new TitleState( m_SceneStateController ), "Title" );
+		m_SceneStateController.SetState( new TitleState( m_SceneStateController ), "Title" );
     }
 
     void Update( ) {

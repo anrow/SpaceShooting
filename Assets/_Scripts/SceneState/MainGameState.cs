@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainGameState : SceneState {
 
-    public MainGameState( SceneStateController Controller ) : base( Controller ) {
+    public MainGameState( SceneStateController _Controller ) : base( _Controller ) {
         this.StateName = "MainGame";
     }
 
