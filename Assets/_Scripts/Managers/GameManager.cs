@@ -17,11 +17,10 @@ public class GameManager : Object {
             return instance;
         }
     }
+    
+	public void Initinal( ) {
+	}
 
-    public void Initinal( ) {
-    
-    }
-    
     public void Update( ) {
     }
 

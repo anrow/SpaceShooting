@@ -10,15 +10,18 @@ public class TitleState : SceneState {
     }
 
     public override void EnterState( ) {
-    
+		
+		GameObject CanvasObj = UnityTool.FindObjInName( "Canvas" );
+
+		Button btn = UITool.GetUIComponent<Button>( CanvasObj, "StartButton" );
+
+		if( btn != null ) {
+			btn.onClick.AddListener( ( ) => OnStartButtonClick( ) );
+		}
     }
 
     public override void UpdateState( ) {
-        GameObject CanvasObj = UnityTool.FindObjInName( "Canvas" );
-        Button btn = UITool.GetUIComponent<Button>( CanvasObj, "StartButton" );
-        if( btn != null ) {
-            btn.onClick.AddListener( ( ) => OnStartButtonClick( ) );
-        }
+        
     }
 
     private void OnStartButtonClick( ) {

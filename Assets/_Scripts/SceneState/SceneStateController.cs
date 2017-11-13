@@ -11,10 +11,6 @@ public class SceneStateController {
 
     public SceneStateController( ) { }
 
-    public void CheckState( ) {
-       
-    } 
-
     public void SetState( SceneState _NewState, string LoadSceneName ) {
 
         isRunBegin = false;

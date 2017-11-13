@@ -8,4 +8,10 @@ public class MainGameState : SceneState {
         this.StateName = "MainGame";
     }
 
+	public override void UpdateState( ) {
+
+		GameManager.Instance.Initinal( );
+
+	}
+
 }
