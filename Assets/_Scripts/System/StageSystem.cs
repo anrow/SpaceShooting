@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class StageSystem : GameSystem {
 
-
-	public override void Update( ) {
+	public StageSystem( GameManager _GameManager ) : base( _GameManager ) {
 	}
 
-	public override void Release( ) {
+	public override void Initinal( ) {
 	}
-
 }

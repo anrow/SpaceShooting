@@ -18,10 +18,23 @@ public class GameManager : Object {
         }
     }
     
+	private CharacterSystem m_CharacterSystem = null;
+
+	private StageSystem m_StageSystem = null;
+
 	public void Initinal( ) {
+
+		m_CharacterSystem = new CharacterSystem( this );
+
+		m_StageSystem = new StageSystem( this );
+
 	}
 
     public void Update( ) {
+
+		m_CharacterSystem.Update( );
+
+		m_StageSystem.Update( );
     }
 
     public void GamePause( ) {

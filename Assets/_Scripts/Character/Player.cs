@@ -2,24 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character {
+public abstract class Player : Character {
 
-    protected Rigidbody rb;
+	public Player( ) { 
+		
+	}
 
-    //生成した弾丸のトランスフォーマー
-    protected Transform shotTrans;
+	public override void Attack( Character AttackTarget ) {
 
-    //プレーヤーの最大ライフポイント
-    protected const int DEFAULT_LIFE = 5;
- 
-    void Awake( ) {
+		BulletShoot( );
 
-        SetGameObject( this.gameObject );
+	}
 
-        rb = this.gameObject.GetComponent<Rigidbody>( );
+	public override void UnderAttack( Character _Attacker ) {
+		
+	}
 
-        shotTrans = GameObject.FindGameObjectWithTag( "PlayerShotTrans" ).transform;
-        
-        life = DEFAULT_LIFE; 
-    }
 }

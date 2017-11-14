@@ -2,30 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour {
+public abstract class Character {
 
-    protected GameObject _GameObject = null;
+	protected string m_Name = "";
 
-    protected bool _beKilled;
+	protected GameObject m_GameObject = null;
 
-    protected bool _checkKilled = false;
+	protected Rigidbody m_Rigidbody = null;
 
-    protected bool _canRemove = false;
+	protected Transform m_ShootTrans = null;
 
-    protected const float _removeTimer = 1f;
+	protected bool m_isKilled = false;
 
-    protected int life;
+	protected bool m_isCheckKilled = false;
 
-    public Character( ) { }
+	protected bool m_canRemove = false;
 
-    public void SetGameObject( GameObject obj ) {
-        _GameObject = obj;
-    }
+	protected float m_RemoveTimer = 1.0f;
 
-    public void Release( GameObject obj ) {
+	private Bullet m_Bullet = null;
 
-        _GameObject = obj;
-        
-        Destroy( obj );
-    }
+	public Character( ) { }
+
+	protected void BulletShoot( ) {
+		m_Bullet.Shoot( );
+	}
+
+	public abstract void Attack (Character _AttackTarget); 
+
+	public abstract void UnderAttack( Character _Attacker );
+
+	public void SetGameObject( GameObject _GameObject ) {
+		
+		m_GameObject = _GameObject;
+
+		m_Rigidbody = m_GameObject.GetComponent<Rigidbody>( );
+
+		m_ShootTrans = m_GameObject.GetComponentInChildren<Transform>( );
+
+	}
+
+	public void Release( ) {
+
+		if( m_GameObject != null ) {
+			GameObject.Destroy( m_GameObject );
+		}
+	}
 }
+   
