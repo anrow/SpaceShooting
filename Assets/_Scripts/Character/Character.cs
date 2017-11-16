@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character {
+public abstract class Character : MonoBehaviour {
 
 	protected string m_Name = "";
 
@@ -20,6 +20,8 @@ public abstract class Character {
 
 	protected float m_RemoveTimer = 1.0f;
 
+    protected float speed = 10f;
+
 	private Bullet m_Bullet = null;
 
 	public Character( ) { }
@@ -28,7 +30,7 @@ public abstract class Character {
 		m_Bullet.Shoot( );
 	}
 
-	public abstract void Attack (Character _AttackTarget); 
+	public abstract void Attack( Character _AttackTarget ); 
 
 	public abstract void UnderAttack( Character _Attacker );
 
@@ -41,6 +43,8 @@ public abstract class Character {
 		m_ShootTrans = m_GameObject.GetComponentInChildren<Transform>( );
 
 	}
+
+    public abstract void Movement( Rigidbody _Rigidbody, float tilt );
 
 	public void Release( ) {
 

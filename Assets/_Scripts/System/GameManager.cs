@@ -18,28 +18,22 @@ public class GameManager : Object {
         }
     }
     
-	private CharacterSystem m_CharacterSystem = null;
+	private CharacterSystem m_CharacterSystem = new CharacterSystem( instance );
 
-	private StageSystem m_StageSystem = null;
+	private StageSystem m_StageSystem = new StageSystem( instance );
+    
+    public void Initinal( ) {
 
-	public void Initinal( ) {
-
-		m_CharacterSystem = new CharacterSystem( this );
-
-		m_StageSystem = new StageSystem( this );
-
+        m_CharacterSystem.Initinal( );
+        
+		m_StageSystem.Initinal( );
 	}
 
     public void Update( ) {
 
 		m_CharacterSystem.Update( );
-
+        
 		m_StageSystem.Update( );
     }
 
-    public void GamePause( ) {
-    }
-    
-    public void GameOver( ) {
-    } 
 }
