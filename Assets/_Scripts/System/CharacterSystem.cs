@@ -42,11 +42,12 @@ public class CharacterSystem : GameSystem {
 		
 
 	public override void Initinal( ) {
-
+        m_Player.Initinal( );
 	}
 
 	public override void Update( ) {
-        m_Player.HandleInput( );
+       
+       m_Player.Update( );
 	}
 
 	public override void Release( ) {

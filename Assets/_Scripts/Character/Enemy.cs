@@ -18,6 +18,14 @@ public class Enemy : Character {
 
 	public override void UnderAttack( Character Attacker ) {
 	}
+
+    public override void Initinal( ) {
+    
+    }
+
+    public override void Update( ) {
+        
+    }
 }
 
 

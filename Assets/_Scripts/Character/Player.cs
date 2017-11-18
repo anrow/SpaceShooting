@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class Player : Character {
 
+    [SerializeField]
+    public Rigidbody m_Rb;
+
+    [SerializeField]
+    public float m_Tilt;
+
+    private bool isMoveX = false;
+    
+    private bool isMoveZ = false;
     public Player( ) { }
-
-    protected bool isMoveX = false;
-
-    protected bool isMoveZ = false;
 
     public void HandleInput( ) {
 
@@ -21,17 +26,18 @@ public class Player : Character {
         }
     }
 
-    public override void Movement( Rigidbody _Rigidbody, float tilt ) {
+    public override void Movement( Rigidbody _Rigidbody, float _Tilt ) {
 
         float axisX = Input.GetAxis( "Horizontal" );
 
         float axisZ = Input.GetAxis( "Vertical" );
 
         if( isMoveX ) {
+
             _Rigidbody.velocity = new Vector3( axisX * speed, 0, _Rigidbody.velocity.z );
 
             //Z方向の回転//
-            _Rigidbody.rotation = Quaternion.Euler( _Rigidbody.rotation.x, 0, axisX * -tilt );
+            _Rigidbody.rotation = Quaternion.Euler( _Rigidbody.rotation.x, 0, axisX * -_Tilt );
         }  
         //Z軸の移動
         if( isMoveZ ) {
@@ -48,5 +54,14 @@ public class Player : Character {
 	public override void UnderAttack( Character _Attacker ) {
 		
 	}
+
+    public override void Initinal( ) {
+     
+    }
+
+    public override void Update( ) {
+        HandleInput( );
+        Movement( m_Rb, m_Tilt );
+    }
 
 }

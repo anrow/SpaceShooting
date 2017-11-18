@@ -34,7 +34,7 @@ public abstract class Character : MonoBehaviour {
 
 	public abstract void UnderAttack( Character _Attacker );
 
-	public void SetGameObject( GameObject _GameObject ) {
+	public virtual void SetGameObject( GameObject _GameObject ) {
 		
 		m_GameObject = _GameObject;
 
@@ -44,12 +44,18 @@ public abstract class Character : MonoBehaviour {
 
 	}
 
-    public abstract void Movement( Rigidbody _Rigidbody, float tilt );
+    public abstract void Movement( Rigidbody _Rigidbody, float _Tilt );
+
+    public abstract void Initinal( );
+
+    public abstract void Update( );
 
 	public void Release( ) {
 
 		if( m_GameObject != null ) {
+
 			GameObject.Destroy( m_GameObject );
+
 		}
 	}
 }
