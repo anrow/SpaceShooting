@@ -5,24 +5,23 @@ using UnityEngine;
 
 public class Player : Character {
 
-    [SerializeField]
-    public Rigidbody m_Rb;
-
-    [SerializeField]
-    public float m_Tilt;
-
-    private bool isMoveX = false;
+    public bool isMoveX = false;
     
-    private bool isMoveZ = false;
+    public bool isMoveZ = false;
+
     public Player( ) { }
 
     public void HandleInput( ) {
 
         if( Input.GetAxis( "Horizontal" ) != 0 ) {
             isMoveX = true;
+        } else {
+            isMoveX = false;
         }
         if( Input.GetAxis( "Vertical" ) != 0 ) {
             isMoveZ = true;
+        } else {
+            isMoveZ = false;
         }
     }
 
@@ -56,12 +55,10 @@ public class Player : Character {
 	}
 
     public override void Initinal( ) {
-     
+        
     }
 
     public override void Update( ) {
         HandleInput( );
-        Movement( m_Rb, m_Tilt );
     }
-
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour {
+public abstract class Character {
 
 	protected string m_Name = "";
 
@@ -24,7 +24,8 @@ public abstract class Character : MonoBehaviour {
 
 	private Bullet m_Bullet = null;
 
-	public Character( ) { }
+	public Character( ) {
+    }
 
 	protected void BulletShoot( ) {
 		m_Bullet.Shoot( );
