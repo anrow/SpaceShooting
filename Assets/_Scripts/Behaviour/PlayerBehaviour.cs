@@ -10,15 +10,16 @@ public class PlayerBehaviour : MonoBehaviour {
     [SerializeField]
     private float m_Tilt;
 
-    private Player m_Player = new Player( );
+    private IPlayer m_Player = new IPlayer( );
 
 	// Use this for initialization
-	void Start () {
+	void Start( ) {
 		m_Player.SetGameObject( this.gameObject );
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update( ) {
+        
 		m_Player.HandleInput( );
         m_Player.Movement( m_Rb, m_Tilt );
 	}

@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneStateController {
 
-    private SceneState m_State;
+    private ISceneState m_State;
 
     private bool isRunBegin = false;
 
     public SceneStateController( ) { }
 
-    public void SetState( SceneState _NewState, string LoadSceneName ) {
+    public void SetState( ISceneState _NewState, string LoadSceneName ) {
 
         isRunBegin = false;
 	    

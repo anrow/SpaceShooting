@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleState : SceneState {
+public class TitleState : ISceneState {
 	
     public TitleState( SceneStateController _Controller ) : base( _Controller ) {
         this.StateName = "Title";

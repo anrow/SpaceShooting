@@ -10,7 +10,7 @@ public class GameSystem {
         m_GameManager = _GameManager;
     }
 
-	public virtual void Initinal( ) { }
+	public virtual void Initinalize( ) { }
 
 	public virtual void Update( ) { }
 

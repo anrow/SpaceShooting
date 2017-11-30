@@ -24,9 +24,9 @@ public class GameManager : Object {
     
     public void Initinal( ) {
 
-        m_CharacterSystem.Initinal( );
+        m_CharacterSystem.Initinalize( );
         
-		m_StageSystem.Initinal( );
+		m_StageSystem.Initinalize( );
 	}
 
     public void Update( ) {
