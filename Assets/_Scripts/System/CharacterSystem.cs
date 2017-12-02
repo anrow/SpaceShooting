@@ -8,8 +8,6 @@ public class CharacterSystem : GameSystem {
         
     }
 
-    private IPlayer m_Player = new IPlayer( );
-
     private List<ICharacter> m_Players = new List<ICharacter>( );
 
 	private List<ICharacter> m_Enemys = new List<ICharacter>( );
@@ -42,12 +40,10 @@ public class CharacterSystem : GameSystem {
 		
 
 	public override void Initinalize( ) {
-        m_Player.Initinalize( );
 	}
 
 	public override void Update( ) {
-       
-       m_Player.Update( );
+      
 	}
 
 	public override void Release( ) {

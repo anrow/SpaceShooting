@@ -13,6 +13,7 @@ public abstract class IBullet {
 }
 
 public enum ENUM_Bullet {
+	Null,
     Red,
     Yellow,
     Blue,

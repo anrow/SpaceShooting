@@ -29,6 +29,7 @@ public class IEnemy : ICharacter {
 }
 
 public enum ENUM_Enemy {
+	Null,
     Red,
     Yellow,
     Blue,

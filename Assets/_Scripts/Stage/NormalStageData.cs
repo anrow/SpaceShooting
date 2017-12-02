@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NormalStageData : IStageData {
 
+	private CharacterFactory m_Factory = new CharacterFactory( );
+
     private float m_CoolDownTime = 0;
     private float m_MaxCoolDownTime = 0;
 
@@ -15,7 +17,15 @@ public class NormalStageData : IStageData {
     private List<StageData> m_StageData = new List<StageData>( );
 
     class StageData {
-       
+		
+		public ENUM_Enemy emEnemy = ENUM_Enemy.Null;
+		public ENUM_Bullet emBullet = ENUM_Bullet.Null;
+		public bool isBorn = false;
+
+		public StageData( ENUM_Enemy _Em_Enemy, ENUM_Bullet _Em_Bullet ) {
+			this.emEnemy = _Em_Enemy;
+			this.emBullet = _Em_Bullet;
+		}
     }
 
     public NormalStageData( float _CoolDownTime, Vector3 _SpawnPosition ) {
@@ -24,7 +34,33 @@ public class NormalStageData : IStageData {
         m_SpawnPosition = _SpawnPosition;
     }
 
+	public void AddStageData( ENUM_Enemy _Em_Enemy, ENUM_Bullet _Em_Bullet, int _Count ) {
+		for( int i = 0; i < _Count; ++i ) {
+			m_StageData.Add( new StageData( _Em_Enemy, _Em_Bullet ) );
+		}
+	}
+
     public override void Update( ) {
+
+		if( m_StageData.Count == 0 ) {
+			return;
+		}
+
+		m_CoolDownTime -= Time.deltaTime;
+
+		if( m_CoolDownTime > 0 ) {
+			return;
+		}
+
+		m_CoolDownTime = m_MaxCoolDownTime;
+
+		StageData theNewEnemy = GetEnemy( );
+
+		if( theNewEnemy == null ) {
+			return;
+		}
+
+		m_Factory.CreateEnemy( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
     }
     public override bool IsFinished( ) {
         return m_IsAllEnemyBorn;
@@ -36,4 +72,15 @@ public class NormalStageData : IStageData {
         }
 
     }
+
+	private StageData GetEnemy( ) {
+		foreach( StageData FE_StageData in m_StageData ) {
+			if( FE_StageData.isBorn == false ) {
+				FE_StageData.isBorn = true;
+				return FE_StageData;
+			}
+		}
+		m_IsAllEnemyBorn = true;
+		return null;
+	}
 }

@@ -18,8 +18,13 @@ public class CharacterFactory : ICharacterFactory {
 
         switch( _Em_Enemy ) {
             case ENUM_Enemy.Red:
+                GameObject ObjEnemyRed = Resources.Load( "EnemyRed", typeof(GameObject) ) as GameObject;
+                GameObject.Instantiate( ObjEnemyRed, _SpawnPosition, Quaternion.identity );
+                ObjEnemyRed.AddComponent<EnemyRed>( );                
                 break;
         }
+
+        GameManager.Instance.AddEnemy( theEnemy );
 
         return theEnemy;
     }
