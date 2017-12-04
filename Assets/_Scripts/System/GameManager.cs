@@ -35,9 +35,5 @@ public class GameManager : Object {
         
 		m_StageSystem.Update( );
     }
-
-    public void AddEnemy( IEnemy _Enemy ) {
-        m_CharacterSystem.AddEnemy( _Enemy );
-    }
    
 }

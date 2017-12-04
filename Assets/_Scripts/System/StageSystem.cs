@@ -15,7 +15,8 @@ public class StageSystem : GameSystem {
     }
 
 	public override void Initinalize( ) {
-
+		//InitializeStageData( );
+		GetSpawnPosition( );
 	}
     public override void Update( ) {
 
@@ -25,19 +26,19 @@ public class StageSystem : GameSystem {
 
     private Vector3 GetSpawnPosition( ) {
 
-		if (m_SpawnPosition == null) {
+		if( m_SpawnPosition == null ) {
 
 			m_SpawnPosition = new List<Vector3>( );
 
-			for (int i = 0; i <= 3; ++i) {
+			for( int i = 0; i <= 3; i++ ) {
                
 				string spawnPosName = string.Format( "EnemySpawnPosition{0}", i );
 				GameObject tempObj = UnityTool.FindObjInName( spawnPosName );
-				Debug.Log( spawnPosName );
 
-				if (tempObj == null) {
+
+				/*if( tempObj == null ) {
 					continue;
-				}
+				}*/
 
 				tempObj.SetActive( false );
 				m_SpawnPosition.Add( tempObj.transform.position );
@@ -45,8 +46,8 @@ public class StageSystem : GameSystem {
 			}
         
 		}
-        int index = UnityEngine.Random.Range( 0, m_SpawnPosition.Count );
-	
+        int index = UnityEngine.Random.Range( 0, m_SpawnPosition.Count - 1 );
+		Debug.Log( m_SpawnPosition.Count );
         return m_SpawnPosition[ index ];
     }
 

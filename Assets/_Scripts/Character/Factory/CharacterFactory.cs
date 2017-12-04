@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharacterFactory : ICharacterFactory {
 
+	private CharacterSystem m_CharacterSystem = new CharacterSystem( GameManager.Instance ); 
+
     public override IPlayer CreatePlayer( ENUM_Bullet _Em_Bullet, Vector3 _SpawnPosition ) {
 
         IPlayer thePlayer = null;
@@ -17,14 +19,14 @@ public class CharacterFactory : ICharacterFactory {
         IEnemy theEnemy = null;
 
         switch( _Em_Enemy ) {
-            case ENUM_Enemy.Red:
-                GameObject ObjEnemyRed = Resources.Load( "EnemyRed", typeof(GameObject) ) as GameObject;
-                GameObject.Instantiate( ObjEnemyRed, _SpawnPosition, Quaternion.identity );
-                ObjEnemyRed.AddComponent<EnemyRed>( );                
+			case ENUM_Enemy.Red:
+				theEnemy = new IEnemyRed( );               
                 break;
         }
 
-        GameManager.Instance.AddEnemy( theEnemy );
+		m_CharacterSystem.AddEnemy (theEnemy);
+
+		Debug.Log (theEnemy);
 
         return theEnemy;
     }

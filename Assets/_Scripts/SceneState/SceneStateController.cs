@@ -11,12 +11,12 @@ public class SceneStateController {
 
     public SceneStateController( ) { }
 
-    public void SetState( ISceneState _NewState, string LoadSceneName ) {
+    public void SetState( ISceneState _NewState, string _LoadSceneName ) {
 
         isRunBegin = false;
 	    
-        if( SceneManager.GetActiveScene( ).name != LoadSceneName ) {
-       	    LoadScene( LoadSceneName );
+        if( SceneManager.GetActiveScene( ).name != _LoadSceneName ) {
+       	    LoadScene( _LoadSceneName );
         }
         
         if( m_State != null ) {
@@ -27,13 +27,13 @@ public class SceneStateController {
 
     }
 
-    private void LoadScene( string LoadSceneName ) {
+    private void LoadScene( string _LoadSceneName ) {
 
-        if( LoadSceneName == null ) {
+        if( _LoadSceneName == null ) {
             return;
         }
 
-        SceneManager.LoadScene( LoadSceneName );
+        SceneManager.LoadScene( _LoadSceneName );
     }
 
     public void UpdateState( ) {
@@ -45,7 +45,7 @@ public class SceneStateController {
             isRunBegin = true;
         }
 
-        if( m_State != null ) {
+		if( m_State != null && isRunBegin == true ) {
             
             m_State.UpdateState( );
 
