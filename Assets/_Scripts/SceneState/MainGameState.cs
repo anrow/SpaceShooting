@@ -9,14 +9,14 @@ public class MainGameState : ISceneState {
     }
 
 	public override void EnterState( ) {
-		
-		GameManager.Instance.Initinal( );
-
+        Debug.Log( "EnterMainGame" );
+        GameManager.Instance.Initinalize( );
+    
 	}
 
 	public override void UpdateState( ) {
-		
-		GameManager.Instance.Update( );
+	
+		//GameManager.Instance.Update( );
 	}
 
 }
