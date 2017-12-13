@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class StageSystem : GameSystem {
+public class StageSystem : IGameSystem {
 
     public const int MAX_HEART = 5;
 
@@ -11,14 +11,15 @@ public class StageSystem : GameSystem {
 
     private List<Vector3> m_SpawnPosition = null;
 
-    public StageSystem( GameManager _GameManager ) : base( _GameManager ) {
+    public StageSystem( GameSystem _GameSystem ) : base( _GameSystem ) {
+        Initinalize( );
     }
 
 	public override void Initinalize( ) {
-		Debug.Log ("Start");
-        GetSpawnPosition( );
+        InitializeStageData( );
 	}
     public override void Update( ) {
+        
 	}
     public override void Release( ) {
 	}
@@ -48,5 +49,12 @@ public class StageSystem : GameSystem {
         int index = UnityEngine.Random.Range( 0, m_SpawnPosition.Count );
 	
         return m_SpawnPosition[ index ];
+    }
+
+    private void InitializeStageData( ) {
+
+        NormalStageData EnemyStageData = null;
+
+        EnemyStageData = new NormalStageData( 3f, GetSpawnPosition( ) );
     }
 }

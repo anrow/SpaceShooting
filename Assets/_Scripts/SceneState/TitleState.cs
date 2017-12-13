@@ -7,14 +7,16 @@ public class TitleState : ISceneState {
 	
     public TitleState( SceneStateController _Controller ) : base( _Controller ) {
         this.StateName = "Title";
+        this.EM_SceneState = ENUM_SceneState.Title;
     }
 
     public override void EnterState( ) {
-		
+		Debug.Log( "EnterTitle" );
+       
 		GameObject CanvasObj = UnityTool.FindObjInName( "Canvas" );
 
 		Button btn = UITool.GetUIComponent<Button>( CanvasObj, "StartButton" );
-
+        Debug.Log ( btn );
 		if( btn != null ) {
 			btn.onClick.AddListener( ( ) => OnStartButtonClick( ) );
 		}

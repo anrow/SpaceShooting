@@ -2,17 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CharacterSystem : GameSystem {
-
-    public CharacterSystem( GameManager _GameManager ) :  base( _GameManager ) {
-        
-    }
+public class CharacterSystem : IGameSystem {
 
     private IPlayer m_Player = new IPlayer( );
 
     private List<ICharacter> m_Players = new List<ICharacter>( );
 
 	private List<ICharacter> m_Enemys = new List<ICharacter>( );
+
+    public CharacterSystem( GameSystem _GameSystem ) : base( _GameSystem ) {
+        Initinalize( );
+    }
 
     public void AddPlayer( IPlayer _Player  ) {
 		m_Players.Add( _Player );
@@ -42,7 +42,7 @@ public class CharacterSystem : GameSystem {
 		
 
 	public override void Initinalize( ) {
-        Debug.Log( "Init" );
+        Debug.Log( "CharaInit" );
 	}
 
 	public override void Update( ) {

@@ -4,27 +4,15 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager> {
     
-    [SerializeField]
-	private CharacterSystem m_CharacterSystem;
+    private GameSystem m_GameSystem;
 
-    [SerializeField]
-	private StageSystem m_StageSystem;
+    public GameManager( ) { }
 
     private void Awake( ) {
-        Debug.Log( "ManagerAwake" );
-        if( m_CharacterSystem == null ) {
-            m_CharacterSystem = GameObject.FindObjectOfType<CharacterSystem>( );
-        }
-        if( m_StageSystem == null ) {
-            m_StageSystem = GameObject.FindObjectOfType<StageSystem>( );
-        }
+        m_GameSystem = new GameSystem( );
     }
 
-    public void Initinalize( ) {
-        m_CharacterSystem.Initinalize( );
-	}
-
-    public void Update( ) {
+    private void Start( ) {
+        m_GameSystem.Initinalize( );
     }
-
 }

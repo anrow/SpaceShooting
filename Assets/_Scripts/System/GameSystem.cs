@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSystem : MonoBehaviour {
+public class GameSystem {
 
-    protected GameManager m_GameManager = null;
+    private CharacterSystem m_CharacterSystem = null;
 
-    public GameSystem( GameManager _GameManager ) {
-        m_GameManager = _GameManager;
+    private StageSystem m_StageSystem = null;
+
+    public void Initinalize( ) {
+        m_CharacterSystem = new CharacterSystem( this );
+        m_StageSystem = new StageSystem( this );
+        Debug.Log( m_CharacterSystem );
     }
 
-	public virtual void Initinalize( ) { }
-
-	public virtual void Update( ) { }
-
-	public virtual void Release( ) { }
 }

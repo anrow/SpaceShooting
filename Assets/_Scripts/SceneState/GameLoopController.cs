@@ -8,7 +8,7 @@ public class GameLoopController : MonoBehaviour {
     SceneStateController m_SceneStateController = new SceneStateController( );
 
     void Awake( ) {
-        DontDestroyOnLoad( this.gameObject );
+        DontDestroyOnLoad( this );
     }
 
     void Start( ) {
@@ -16,10 +16,10 @@ public class GameLoopController : MonoBehaviour {
 		string nowStateName = SceneManager.GetActiveScene( ).name;
 
 		m_SceneStateController.SetState( new TitleState( m_SceneStateController ), nowStateName );
-
+       
     }
 
-    void Update( ) {
+    void Update( ) {  
         m_SceneStateController.UpdateState( );
     }
 }
