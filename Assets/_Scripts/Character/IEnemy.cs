@@ -4,7 +4,13 @@ using System;
 
 public class IEnemy : ICharacter {
 
-	public IEnemy( ) { }
+    private EnemyMove m_Movement;
+
+    public GameObject InstanceObj;
+
+	public IEnemy( ) {
+        Initinalize( );
+    }
 
     public override void Movement( Rigidbody _Rigidbody, float tilt ) {
         
@@ -20,7 +26,10 @@ public class IEnemy : ICharacter {
 	}
 
     public override void Initinalize( ) {
-    
+        InstanceObj = GameObject.FindObjectOfType<EnemyMove>( ).gameObject;
+        m_Movement = this.InstanceObj.GetComponent<EnemyMove>( );
+        m_Movement.a = 1;
+        Debug.Log ( m_Movement.a );
     }
 
     public override void Update( ) {

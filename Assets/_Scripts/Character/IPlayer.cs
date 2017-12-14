@@ -9,7 +9,11 @@ public class IPlayer : ICharacter {
     
     public bool isMoveZ = false;
 
-    public IPlayer( ) { }
+    public GameObject InstanceObj;
+
+    public IPlayer( ) {
+        Initinalize( );
+    }
 
     public void HandleInput( ) {
 

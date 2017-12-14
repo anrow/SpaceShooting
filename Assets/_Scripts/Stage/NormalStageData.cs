@@ -18,14 +18,14 @@ public class NormalStageData : IStageData {
 
     class StageData {
 		
-		public ENUM_Enemy emEnemy = ENUM_Enemy.Null;
+        public ENUM_Enemy emEnemy = ENUM_Enemy.Red;
 		public ENUM_Bullet emBullet = ENUM_Bullet.Null;
 		public bool isBorn = false;
 
 		public StageData( ENUM_Enemy _Em_Enemy, ENUM_Bullet _Em_Bullet ) {
 			this.emEnemy = _Em_Enemy;
 			this.emBullet = _Em_Bullet;
-		}
+        }
     }
 
     public NormalStageData( float _CoolDownTime, Vector3 _SpawnPosition ) {
@@ -60,7 +60,8 @@ public class NormalStageData : IStageData {
 			return;
 		}
 
-		m_Factory.CreateEnemy( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
+		m_Factory.CreateEnemyObj( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
+        Debug.Log( m_Factory );
     }
     public override bool IsFinished( ) {
         return m_IsAllEnemyBorn;

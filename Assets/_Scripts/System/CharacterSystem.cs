@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class CharacterSystem : IGameSystem {
 
-    private IPlayer m_Player = new IPlayer( );
-
     private List<ICharacter> m_Players = new List<ICharacter>( );
 
 	private List<ICharacter> m_Enemys = new List<ICharacter>( );
@@ -42,7 +40,6 @@ public class CharacterSystem : IGameSystem {
 		
 
 	public override void Initinalize( ) {
-        Debug.Log( "CharaInit" );
 	}
 
 	public override void Update( ) {
