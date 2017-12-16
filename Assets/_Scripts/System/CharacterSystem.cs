@@ -43,11 +43,21 @@ public class CharacterSystem : IGameSystem {
 	}
 
 	public override void Update( ) {
-     
+		UpdateCharacter( );
 	}
 
 	public override void Release( ) {
 	}
 
+
+	private void UpdateCharacter( ) {
+		foreach( ICharacter _Character in m_Players ) {
+			_Character.Update( );
+		}
+		foreach( ICharacter _Character in m_Enemys ) {
+			Debug.Log( m_Enemys );
+			_Character.Update( );
+		}
+	}
  }
 

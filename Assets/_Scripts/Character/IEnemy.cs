@@ -26,10 +26,8 @@ public class IEnemy : ICharacter {
 	}
 
     public override void Initinalize( ) {
-        InstanceObj = GameObject.FindObjectOfType<EnemyMove>( ).gameObject;
-        m_Movement = this.InstanceObj.GetComponent<EnemyMove>( );
-        m_Movement.a = 1;
-        Debug.Log ( m_Movement.a );
+     
+        Debug.Log ( "IEnemy init" );
     }
 
     public override void Update( ) {

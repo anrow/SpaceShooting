@@ -59,6 +59,6 @@ public class StageSystem : IGameSystem {
 
         EnemyStageData = new NormalStageData( 3f, GetSpawnPosition( ) );
 
-        m_CharacterFactory.CreateEnemyObj( ENUM_Enemy.Red, ENUM_Bullet.Red, Vector3.zero );
+        m_CharacterFactory.CreateEnemy( ENUM_Enemy.Red, ENUM_Bullet.Red, Vector3.zero );
     }
 }

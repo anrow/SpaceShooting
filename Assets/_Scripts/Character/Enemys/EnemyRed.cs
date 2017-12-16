@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRed : MonoBehaviour {
 
-    private Rigidbody m_Rb;
+public class EnemyRed : IEnemy {
 
-    public int a;
+	private EnemyMove m_Movement = null;
 
-    void Start( ) {
-        m_Rb = this.gameObject.GetComponent<Rigidbody>( );
-    }
+	public GameObject InstanceRedObj;
+
+	public override void Initinalize( ) {
+		Debug.Log( "EnemyRedInit" );
+		base.Initinalize( );
+	}
 
 }

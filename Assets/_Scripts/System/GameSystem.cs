@@ -2,31 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSystem {
-
-    private static GameSystem instance;
-
-    public static GameSystem Instance {
-        get {
-            if( instance == null ) {
-                instance = new GameSystem( );
-            }
-            return instance;
-        }
-    }
+public class GameSystem : Singleton<GameSystem> {
 
     private CharacterSystem m_CharacterSystem = null;
-
+ 
     private StageSystem m_StageSystem = null;
 
-    public void Initinalize( ) {
-        m_CharacterSystem = new CharacterSystem( this );
-        m_StageSystem = new StageSystem( this );
-        Debug.Log( m_CharacterSystem );
+    private void Start( ) {
+
+		m_CharacterSystem = new CharacterSystem( this );
+		
+		m_StageSystem = new StageSystem( this );
+        
     }
 
-    public void AddEnemy( IEnemy _Enemy ) {
-        m_CharacterSystem.AddEnemy( _Enemy );
-    }
+	private void Update( ) {
+		m_CharacterSystem.Update( );
+	}
 
+	public void AddEnemy( IEnemy _Enemy ) {
+		m_CharacterSystem.AddEnemy( _Enemy );
+	}
 }
