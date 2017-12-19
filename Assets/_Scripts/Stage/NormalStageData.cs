@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NormalStageData : IStageData {
 
-	private CharacterFactory m_Factory = new CharacterFactory( );
+	private ObjectFactory m_Factory = new ObjectFactory( );
 
     private float m_CoolDownTime = 0;
     private float m_MaxCoolDownTime = 0;
@@ -61,6 +61,7 @@ public class NormalStageData : IStageData {
 		}
 
 		m_Factory.CreateEnemyObj( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
+        
         Debug.Log( m_Factory );
     }
     public override bool IsFinished( ) {

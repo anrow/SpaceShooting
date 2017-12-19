@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class EnemyRed: MonoBehaviour {
 
-public class EnemyRed : IEnemy {
+    [SerializeField]
+    private float m_Tilt;
 
-	private EnemyMove m_Movement = null;
+    private Rigidbody m_Rb;
 
-	public GameObject InstanceRedObj;
+    private IEnemy m_Behaviour = new IEnemy( );
 
-	public override void Initinalize( ) {
-		Debug.Log( "EnemyRedInit" );
-		base.Initinalize( );
-	}
-
+    private void Awake( ) {
+        m_Behaviour.Initinalize( );
+        GameSystem.Instance.AddEnemy( m_Behaviour );
+        Debug.Log( m_Behaviour );
+    }
+    private void Start( ) {
+        m_Rb = this.GetComponent<Rigidbody>( );
+    }
+    private void Update( ) {
+        m_Behaviour.Movement( ENUM_Enemy.Red, 60 );
+    }
 }

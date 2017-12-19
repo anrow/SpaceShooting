@@ -58,6 +58,7 @@ public class CharacterSystem : IGameSystem {
 			Debug.Log( m_Enemys );
 			_Character.Update( );
 		}
+      
 	}
  }
 

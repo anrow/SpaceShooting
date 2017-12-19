@@ -44,8 +44,8 @@ public abstract class ICharacter {
 
 	}
 
-    public abstract void Movement( Rigidbody _Rigidbody, float _Tilt );
-
+    public virtual void Movement( Rigidbody _Rigidbody, float _Tilt ) { }
+    public virtual void Movement( ENUM_Enemy _EnemyType, float _Tilt ) { }
     public abstract void Initinalize( );
 
     public abstract void Update( );

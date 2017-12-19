@@ -5,7 +5,7 @@ using System;
 
 public class StageSystem : IGameSystem {
 
-    CharacterFactory m_CharacterFactory = new CharacterFactory( ); 
+    ObjectFactory m_ObjectFactory = new ObjectFactory( ); 
 
     public const int MAX_HEART = 5;
 
@@ -59,6 +59,6 @@ public class StageSystem : IGameSystem {
 
         EnemyStageData = new NormalStageData( 3f, GetSpawnPosition( ) );
 
-        m_CharacterFactory.CreateEnemy( ENUM_Enemy.Red, ENUM_Bullet.Red, Vector3.zero );
+        m_ObjectFactory.CreateEnemyObj( ENUM_Enemy.Red, ENUM_Bullet.Red, Vector3.zero );
     }
 }

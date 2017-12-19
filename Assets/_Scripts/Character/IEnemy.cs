@@ -4,16 +4,16 @@ using System;
 
 public class IEnemy : ICharacter {
 
-    private EnemyMove m_Movement;
-
-    public GameObject InstanceObj;
-
 	public IEnemy( ) {
-        Initinalize( );
+        
     }
 
-    public override void Movement( Rigidbody _Rigidbody, float tilt ) {
-        
+    public override void Movement( ENUM_Enemy _EnemyType, float tilt ) {
+        switch( _EnemyType ) {
+            case ENUM_Enemy.Red:
+                Debug.Log( " RedMove" );
+                break;
+        }
     }
 
     public override void Attack( ICharacter AttackTarget ) {

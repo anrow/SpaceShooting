@@ -29,7 +29,7 @@ public class IPlayer : ICharacter {
         }
     }
 
-    public override void Movement( Rigidbody _Rigidbody, float _Tilt ) {
+    public override void Movement(  Rigidbody _Rigidbody, float _Tilt ) {
         
         float axisX = Input.GetAxis( "Horizontal" );
 
