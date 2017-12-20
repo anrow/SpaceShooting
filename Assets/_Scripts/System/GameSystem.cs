@@ -18,6 +18,7 @@ public class GameSystem : Singleton<GameSystem> {
 
 	private void Update( ) {
 		m_CharacterSystem.Update( );
+		m_StageSystem.Update( );
 	}
 
 	public void AddEnemy( IEnemy _Enemy ) {

@@ -41,8 +41,7 @@ public class NormalStageData : IStageData {
 	}
 
     public override void Update( ) {
-
-		if( m_StageData.Count == 0 ) {
+		/*if( m_StageData.Count == 0 ) {
 			return;
 		}
 
@@ -55,14 +54,13 @@ public class NormalStageData : IStageData {
 		m_CoolDownTime = m_MaxCoolDownTime;
 
 		StageData theNewEnemy = GetEnemy( );
-
+	
 		if( theNewEnemy == null ) {
 			return;
-		}
+		}*/
 
-		m_Factory.CreateEnemyObj( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
-        
-        Debug.Log( m_Factory );
+		//m_Factory.CreateEnemyObj( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
+		m_Factory.CreateEnemyObj( ENUM_Enemy.Red, ENUM_Bullet.Red, m_SpawnPosition );
     }
     public override bool IsFinished( ) {
         return m_IsAllEnemyBorn;

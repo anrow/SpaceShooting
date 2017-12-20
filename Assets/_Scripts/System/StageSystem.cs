@@ -13,22 +13,29 @@ public class StageSystem : IGameSystem {
 
     private List<Vector3> m_SpawnPosition = null;
 
+	private IStageController m_RootStageController = null;
+
+	private IStageController m_NowStageController = null;
+
+	private bool m_isCreateStage = false;
+
     public StageSystem( GameSystem _GameSystem ) : base( _GameSystem ) {
         Initinalize( );
     }
 
 	public override void Initinalize( ) {
-        InitializeStageData( );
+		InitializeStageData( );
+		m_NowStageController = m_RootStageController;
 	}
     public override void Update( ) {
-        
+		m_NowStageController.Update( );
 	}
     public override void Release( ) {
 	}
 
     private Vector3 GetSpawnPosition( ) {
 
-		if (m_SpawnPosition == null) {
+		if( m_SpawnPosition == null ) {
 
 			m_SpawnPosition = new List<Vector3> ();
 
@@ -55,10 +62,20 @@ public class StageSystem : IGameSystem {
 
     private void InitializeStageData( ) {
 
+		if( m_RootStageController != null ) {
+			return;
+		}
+
         NormalStageData EnemyStageData = null;
+
+		IStageController NewStageController = null;
 
         EnemyStageData = new NormalStageData( 3f, GetSpawnPosition( ) );
 
-        m_ObjectFactory.CreateEnemyObj( ENUM_Enemy.Red, ENUM_Bullet.Red, Vector3.zero );
+		NewStageController = new StageController( EnemyStageData );
+
+		m_RootStageController = NewStageController;
+
+        //m_ObjectFactory.CreateEnemyObj( ENUM_Enemy.Red, ENUM_Bullet.Red, Vector3.zero );
     }
 }
