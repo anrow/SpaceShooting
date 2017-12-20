@@ -24,4 +24,7 @@ public class GameSystem : Singleton<GameSystem> {
 	public void AddEnemy( IEnemy _Enemy ) {
 		m_CharacterSystem.AddEnemy( _Enemy );
 	}
+	public void RemoveEenemy( IEnemy _Enemy ) {
+		m_CharacterSystem.RemoveEnemy (_Enemy);
+	}
 }

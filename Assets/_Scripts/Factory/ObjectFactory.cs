@@ -24,6 +24,13 @@ public class ObjectFactory : IObjectFactory {
                 theEnemyObj = EnemyRedObj;
                 
                 break;
+			case ENUM_Enemy.Blue:
+				GameObject EnemyBlueObj = Resources.Load( "EnemyBlue", typeof(GameObject) ) as GameObject;
+				GameObject.Instantiate( EnemyBlueObj, _SpawnPosition, Quaternion.identity );
+
+				theEnemyObj = EnemyBlueObj;
+
+				break;
         }
         return theEnemyObj;
         

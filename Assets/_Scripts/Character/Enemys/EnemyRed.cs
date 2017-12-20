@@ -11,15 +11,25 @@ public class EnemyRed: MonoBehaviour {
 
     private IEnemy m_Behaviour = new IEnemy( );
 
+	void OnEnable( ) {
+		GameSystem.Instance.AddEnemy( m_Behaviour );
+	}
+
     private void Awake( ) {
         m_Behaviour.Initinalize( );
-        GameSystem.Instance.AddEnemy( m_Behaviour );
-        Debug.Log( m_Behaviour );
     }
     private void Start( ) {
+		
         m_Rb = this.GetComponent<Rigidbody>( );
+
     }
     private void Update( ) {
-        m_Behaviour.Movement( ENUM_Enemy.Red, 60 );
+		if( m_Behaviour != null )
+		m_Behaviour.Movement( ENUM_Enemy.Red, m_Rb, 60 );
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			GameSystem.Instance.RemoveEenemy (m_Behaviour);
+			Destroy (this.gameObject);
+		}
     }
 }

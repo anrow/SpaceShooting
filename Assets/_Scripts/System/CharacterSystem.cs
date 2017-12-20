@@ -55,7 +55,7 @@ public class CharacterSystem : IGameSystem {
 			_Character.Update( );
 		}
 		foreach( ICharacter _Character in m_Enemys ) {
-			Debug.Log( m_Enemys );
+			Debug.Log (m_Enemys.Count);
 			_Character.Update( );
 		}
       

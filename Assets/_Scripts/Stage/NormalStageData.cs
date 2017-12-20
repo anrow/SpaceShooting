@@ -61,6 +61,7 @@ public class NormalStageData : IStageData {
 
 		//m_Factory.CreateEnemyObj( theNewEnemy.emEnemy, theNewEnemy.emBullet, m_SpawnPosition );
 		m_Factory.CreateEnemyObj( ENUM_Enemy.Red, ENUM_Bullet.Red, m_SpawnPosition );
+		m_Factory.CreateEnemyObj( ENUM_Enemy.Blue, ENUM_Bullet.Blue, m_SpawnPosition );
     }
     public override bool IsFinished( ) {
         return m_IsAllEnemyBorn;

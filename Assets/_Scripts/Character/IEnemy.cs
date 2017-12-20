@@ -5,13 +5,12 @@ using System;
 public class IEnemy : ICharacter {
 
 	public IEnemy( ) {
-        
     }
 
-    public override void Movement( ENUM_Enemy _EnemyType, float tilt ) {
+    public override void Movement( ENUM_Enemy _EnemyType, Rigidbody _Rigidbody, float tilt ) {
         switch( _EnemyType ) {
-            case ENUM_Enemy.Red:
-                Debug.Log( " RedMove" );
+		case ENUM_Enemy.Red:
+			
                 break;
         }
     }
